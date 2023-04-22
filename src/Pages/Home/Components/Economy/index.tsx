@@ -3,13 +3,10 @@ import { useNavigate } from "react-router";
 import { TArticle } from "../../../../Types/types";
 import { Col, Row } from "antd";
 import { memo } from "react";
+import { renderDescription, renderImage } from "../utils";
 
 function Economy({ values }: { values: TArticle[] }) {
     const history = useNavigate();
-
-    const renderImage = (image: string, description: string) => <div><img src={image} alt={description} width={"100%"} /></div>
-
-    const renderDescription = (description: string) => <p>{description}</p>
 
     const openNewsPost = (id: string | number) => history(`/economy/${id}`)
 
