@@ -11,6 +11,13 @@ function getNews(subject: string) {
     return fetch(`${url}/${subject}`, params).then(response => response.json()).catch(error => console.log(error))
 }
 
+function getNewsById(subject: string, id: string | number) {
+    let allNews;
+    fetch(`${url}/${subject}`, params).then(response => allNews = response.json()).catch(error => console.log(error))
+    return allNews?.[id]
+}
+
 export default {
-    getNews
+    getNews,
+    getNewsById
 }
