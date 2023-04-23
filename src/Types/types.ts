@@ -1,4 +1,5 @@
 export type TArticle = {
+    "id"?: string,
     "title": string,
     "link": string,
     "keywords": string | null,
@@ -13,3 +14,14 @@ export type TArticle = {
     "country": string[],
     "language": string,
   }
+
+export type TAppState = {
+    isLoading: boolean;
+    news: {
+      world: TArticle[],
+      economy: TArticle[],
+      technology: TArticle[]
+    }
+  }
+
+export type TSubject = 'economy' | 'technology' | 'world'

@@ -2,22 +2,13 @@
 import { memo, useEffect, useState } from "react";
 import { Col, Row } from "antd";
 import Economy from "./Components/Economy";
-import { TArticle } from "../../Types/types";
+import { TAppState } from "../../Types/types";
 import Api from "../../Services/newsService"
 import Technology from "./Components/Technology";
 import World from "./Components/World";
 
-type AppState = {
-    isLoading: boolean;
-    news: {
-      world: TArticle[],
-      economy: TArticle[],
-      technology: TArticle[]
-    }
-  }
-
 function Home() {
-    const [state, setState] = useState<AppState>({
+    const [state, setState] = useState<TAppState>({
         isLoading: false,
         news: {
             world: [],
@@ -35,7 +26,6 @@ function Home() {
             }, 
             isLoading: false 
         });
-        console.log('content', state.news.world[0].content)
     }
 
     useEffect(() => {
